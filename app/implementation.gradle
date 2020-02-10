@@ -1,0 +1,13 @@
+apply from: 'dependencies-version.gradle'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation androidx
+    implementation androidx_ktx
+    implementation constraintlayout
+    testImplementation junit
+    androidTestImplementation junit_ext
+    androidTestImplementation espresso
+}
