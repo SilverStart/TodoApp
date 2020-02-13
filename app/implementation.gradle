@@ -1,5 +1,6 @@
 apply from: 'dependencies-version.gradle'
 apply plugin: 'kotlin-kapt'
+apply plugin: "de.mannodermaus.android-junit5"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -7,7 +8,9 @@ dependencies {
     implementation androidx
     implementation androidx_ktx
     implementation constraintlayout
-    testImplementation junit
-    androidTestImplementation junit_ext
+    implementation rx_java
+    testImplementation junit_5
+    testRuntimeOnly junit_5_engine
+    testImplementation junit_5_params
     androidTestImplementation espresso
 }
