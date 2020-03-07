@@ -4,13 +4,18 @@ apply plugin: "de.mannodermaus.android-junit5"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation androidx
     implementation androidx_ktx
     implementation constraintlayout
     implementation rx_java
+    implementation dagger2
+    implementation dagger2_support
+    kapt dagger2_annotation
+    kapt dagger2_compiler
     testImplementation junit_5
     testRuntimeOnly junit_5_engine
     testImplementation junit_5_params
+    testImplementation mockito
     androidTestImplementation espresso
 }
