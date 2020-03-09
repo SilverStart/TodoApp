@@ -10,7 +10,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
-@DisplayName("TodoListVIewModel 클래스")
+@DisplayName("TodoListViewModel 클래스")
 internal class TodoListViewModelTest {
 
     private val mock: TodoListInteractor = mock()
