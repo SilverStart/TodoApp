@@ -9,6 +9,7 @@ dependencies {
     implementation androidx_ktx
     implementation constraintlayout
     implementation rx_java
+    implementation rx_binding
     implementation dagger2
     implementation dagger2_support
     kapt dagger2_annotation
