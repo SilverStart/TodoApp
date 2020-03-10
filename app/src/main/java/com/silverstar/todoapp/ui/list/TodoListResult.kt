@@ -5,5 +5,7 @@ import com.silverstar.todoapp.mvibase.MviResult
 
 sealed class TodoListResult : MviResult {
     object IsLoading : TodoListResult()
-    data class Success(val todoList: List<Todo>) : TodoListResult()
+    sealed class LoadTodoListResult : TodoListResult() {
+        data class Success(val todoList: List<Todo>) : LoadTodoListResult()
+    }
 }

@@ -24,7 +24,7 @@ open class TodoListInteractor @Inject constructor(private val todoDao: TodoDao) 
                 TodoListResult> { action ->
             action.flatMap {
                 todoDao.getAll()
-                    .map { TodoListResult.Success(it) }
+                    .map { TodoListResult.LoadTodoListResult.Success(it) }
                     .cast(TodoListResult::class.java)
                     .subscribeOn(Schedulers.io())
                     .startWith(Observable.just(TodoListResult.IsLoading))

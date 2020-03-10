@@ -14,7 +14,7 @@ class TodoListViewModel @Inject constructor(todoListInteractor: TodoListInteract
                 is TodoListResult.IsLoading -> {
                     latestState.copy(isLoading = true, todoList = emptyList())
                 }
-                is TodoListResult.Success -> {
+                is TodoListResult.LoadTodoListResult.Success -> {
                     latestState.copy(isLoading = false, todoList = result.todoList)
                 }
             }

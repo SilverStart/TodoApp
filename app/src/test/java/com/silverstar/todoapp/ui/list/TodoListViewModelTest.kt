@@ -58,7 +58,7 @@ internal class TodoListViewModelTest {
             whenever(mock.actionProcessor).thenReturn(ObservableTransformer {
                 Observable.just(
                     TodoListResult
-                        .Success(todoList)
+                        .LoadTodoListResult.Success(todoList)
                 )
             })
         }
