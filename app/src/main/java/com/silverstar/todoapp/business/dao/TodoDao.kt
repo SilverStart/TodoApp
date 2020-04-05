@@ -7,10 +7,16 @@ import javax.inject.Inject
 interface TodoDao {
 
     fun getAll(): Observable<List<Todo>>
+
+    fun insert(todo: Todo)
 }
 
 class TodoDaoImpl @Inject constructor() : TodoDao {
     override fun getAll(): Observable<List<Todo>> {
         return Observable.just(emptyList())
+    }
+
+    override fun insert(todo: Todo) {
+
     }
 }
