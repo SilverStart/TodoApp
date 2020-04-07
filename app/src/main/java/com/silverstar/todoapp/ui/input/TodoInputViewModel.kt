@@ -1,11 +1,13 @@
 package com.silverstar.todoapp.ui.input
 
+import com.silverstar.todoapp.mvibase.MviInteractor
 import com.silverstar.todoapp.ui.base.BaseViewModel
 import com.silverstar.todoapp.util.Event
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.functions.BiFunction
+import javax.inject.Inject
 
-class TodoInputViewModel :
+class TodoInputViewModel @Inject constructor(interactor: MviInteractor<TodoInputAction, TodoInputResult>) :
     BaseViewModel<TodoInputIntent, TodoInputAction, TodoInputResult, TodoInputViewState>() {
     override val reducer: BiFunction<TodoInputViewState, TodoInputResult, TodoInputViewState> =
         BiFunction { previousState, result ->
@@ -21,7 +23,8 @@ class TodoInputViewModel :
                     isLoading = false,
                     isSuccess = Event(
                         false
-                    )
+                    ),
+                    error = Event(result.todoInputError)
                 )
             }
         }
@@ -35,7 +38,10 @@ class TodoInputViewModel :
     }
 
     override val states: Observable<TodoInputViewState> =
-        Observable.just(TodoInputViewState(false, Event(true), Event(false)))
+        intentsSubject
+            .map(::actionFromIntent)
+            .compose(interactor.actionProcessor)
+            .scan(TodoInputViewState.idle(), reducer)
 
     override fun processIntents(intents: Observable<TodoInputIntent>) {
         intents.subscribe(intentsSubject)

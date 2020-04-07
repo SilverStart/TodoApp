@@ -5,15 +5,15 @@ import com.silverstar.todoapp.util.Event
 
 data class TodoInputViewState(
     val isLoading: Boolean,
-    val isEmptyTitle: Event<Boolean>,
-    val isSuccess: Event<Boolean>
+    val isSuccess: Event<Boolean>,
+    val error: Event<TodoInputError>
 ) : MviViewState {
 
     companion object {
         fun idle(): TodoInputViewState = TodoInputViewState(
             false,
             Event(false),
-            Event(false)
+            Event(TodoInputError.NONE)
         )
     }
 }

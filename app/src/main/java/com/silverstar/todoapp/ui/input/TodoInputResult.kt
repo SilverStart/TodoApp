@@ -6,6 +6,6 @@ sealed class TodoInputResult : MviResult {
     object IsLoading : TodoInputResult()
     sealed class SaveTodoResult : TodoInputResult() {
         object Success : SaveTodoResult()
-        object Fail : SaveTodoResult()
+        data class Fail(val todoInputError: TodoInputError) : SaveTodoResult()
     }
 }
