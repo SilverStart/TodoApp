@@ -6,13 +6,14 @@ import com.silverstar.todoapp.mvibase.MviInteractor
 import com.silverstar.todoapp.ui.input.TodoInputAction
 import com.silverstar.todoapp.ui.input.TodoInputError
 import com.silverstar.todoapp.ui.input.TodoInputResult
+import com.silverstar.todoapp.util.SchedulerProvider
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableTransformer
-import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
 open class TodoInputInteractor @Inject constructor(
-    private val todoDao: TodoDao
+    private val todoDao: TodoDao,
+    private val schedulerProvider: SchedulerProvider
 ) :
     MviInteractor<TodoInputAction, TodoInputResult> {
     override val actionProcessor =
@@ -41,5 +42,5 @@ open class TodoInputInteractor @Inject constructor(
             .cast(TodoInputResult::class.java)
             .startWith(Observable.just(TodoInputResult.IsLoading))
             .onErrorReturn { TodoInputResult.SaveTodoResult.Fail(TodoInputError.FAILED_TO_SAVE) }
-            .subscribeOn(Schedulers.io())
+            .subscribeOn(schedulerProvider.io())
 }
