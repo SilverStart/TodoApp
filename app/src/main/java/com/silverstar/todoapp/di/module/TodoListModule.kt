@@ -19,9 +19,6 @@ abstract class TodoListModule {
     internal abstract fun todoListActivity(): TodoListActivity
 
     @Binds
-    internal abstract fun todoDao(todoDao: TodoDaoImpl): TodoDao
-
-    @Binds
     @IntoMap
     @ViewModelKey(TodoListViewModel::class)
     internal abstract fun bindViewModel(viewModel: TodoListViewModel): ViewModel
