@@ -7,6 +7,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation androidx
     implementation androidx_ktx
+    implementation material_design
     implementation constraintlayout
     implementation rx_java
     implementation rx_binding
