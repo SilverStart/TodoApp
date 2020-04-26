@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TodoApp</string>
+
+    <string name="todo_input">할 일 입력</string>
 </resources>
