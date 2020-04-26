@@ -14,7 +14,7 @@ class TodoInputActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_todo_list)
+        setContentView(R.layout.activity_todo_input)
         val viewModel =
             ViewModelProvider(this, viewModelFactory).get(TodoInputViewModel::class.java)
     }
