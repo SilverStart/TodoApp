@@ -43,4 +43,5 @@ open class TodoInputInteractor @Inject constructor(
             .startWith(Observable.just(TodoInputResult.IsLoading))
             .onErrorReturn { TodoInputResult.SaveTodoResult.Fail(TodoInputError.FAILED_TO_SAVE) }
             .subscribeOn(schedulerProvider.io())
+            .observeOn(schedulerProvider.ui())
 }

@@ -11,6 +11,7 @@ dependencies {
     implementation constraintlayout
     implementation rx_java
     implementation rx_binding
+    implementation rx_android
     implementation dagger2
     implementation dagger2_support
     kapt dagger2_annotation
