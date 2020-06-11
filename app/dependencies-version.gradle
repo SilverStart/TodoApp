@@ -6,6 +6,7 @@ ext {
     rx_java_version = '3.0.4'
     rx_binding_version = '4.0.0'
     rx_android_version = '3.0,0'
+    rx_bridge_version = '3.0.0'
     dagger2_version = '2.26'
     room_version = '2.2.5'
 
@@ -22,6 +23,7 @@ ext {
             rx_java = "io.reactivex.rxjava3:rxjava:$rx_java_version",
             rx_binding = "com.jakewharton.rxbinding4:rxbinding:$rx_binding_version",
             rx_android = "io.reactivex.rxjava3:rxandroid:$rx_android_version",
+            rx_bridge = "com.github.akarnokd:rxjava3-bridge:$rx_bridge_version",
             mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockito_version",
             dagger2 = "com.google.dagger:dagger:$dagger2_version",
             dagger2_compiler = "com.google.dagger:dagger-compiler:$dagger2_version",

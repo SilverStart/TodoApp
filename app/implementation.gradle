@@ -12,6 +12,7 @@ dependencies {
     implementation rx_java
     implementation rx_binding
     implementation rx_android
+    implementation rx_bridge
     implementation dagger2
     implementation dagger2_support
     kapt dagger2_annotation
