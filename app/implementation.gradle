@@ -16,6 +16,9 @@ dependencies {
     implementation dagger2_support
     kapt dagger2_annotation
     kapt dagger2_compiler
+    implementation room
+    implementation room_rx
+    kapt room_compiler
     testImplementation junit_5
     testRuntimeOnly junit_5_engine
     testImplementation junit_5_params

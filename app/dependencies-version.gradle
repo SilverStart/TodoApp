@@ -7,6 +7,7 @@ ext {
     rx_binding_version = '4.0.0'
     rx_android_version = '3.0,0'
     dagger2_version = '2.26'
+    room_version = '2.2.5'
 
     junit_5_version = '5.5.2'
     espresso_version = '3.2.0'
@@ -21,14 +22,18 @@ ext {
             rx_java = "io.reactivex.rxjava3:rxjava:$rx_java_version",
             rx_binding = "com.jakewharton.rxbinding4:rxbinding:$rx_binding_version",
             rx_android = "io.reactivex.rxjava3:rxandroid:$rx_android_version",
-            junit_5 = "org.junit.jupiter:junit-jupiter-api:$junit_5_version",
-            junit_5_engine = "org.junit.jupiter:junit-jupiter-engine:$junit_5_version",
-            junit_5_params = "org.junit.jupiter:junit-jupiter-params:$junit_5_version",
-            espresso = "androidx.test.espresso:espresso-core:$espresso_version",
             mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockito_version",
             dagger2 = "com.google.dagger:dagger:$dagger2_version",
             dagger2_compiler = "com.google.dagger:dagger-compiler:$dagger2_version",
             dagger2_support = "com.google.dagger:dagger-android-support:$dagger2_version",
-            dagger2_annotation = "com.google.dagger:dagger-android-processor:$dagger2_version"
+            dagger2_annotation = "com.google.dagger:dagger-android-processor:$dagger2_version",
+            room = "androidx.room:room-runtime:$room_version",
+            room_rx = "androidx.room:room-rxjava2:$room_version",
+            room_compiler = "androidx.room:room-compiler:$room_version",
+
+            junit_5 = "org.junit.jupiter:junit-jupiter-api:$junit_5_version",
+            junit_5_engine = "org.junit.jupiter:junit-jupiter-engine:$junit_5_version",
+            junit_5_params = "org.junit.jupiter:junit-jupiter-params:$junit_5_version",
+            espresso = "androidx.test.espresso:espresso-core:$espresso_version",
     ]
 }
