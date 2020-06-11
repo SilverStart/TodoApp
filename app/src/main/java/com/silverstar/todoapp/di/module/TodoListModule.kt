@@ -1,8 +1,6 @@
 package com.silverstar.todoapp.di.module
 
 import androidx.lifecycle.ViewModel
-import com.silverstar.todoapp.business.dao.TodoDao
-import com.silverstar.todoapp.business.dao.TodoDaoImpl
 import com.silverstar.todoapp.di.ViewModelBuilder
 import com.silverstar.todoapp.di.ViewModelKey
 import com.silverstar.todoapp.ui.list.TodoListActivity

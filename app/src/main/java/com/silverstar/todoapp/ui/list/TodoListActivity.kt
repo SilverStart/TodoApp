@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
 import com.silverstar.todoapp.R
-import com.silverstar.todoapp.business.entity.Todo
+import com.silverstar.todoapp.data.entity.Todo
 import com.silverstar.todoapp.ui.input.TodoInputActivity
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject

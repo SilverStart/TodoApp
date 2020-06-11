@@ -2,7 +2,7 @@ package com.silverstar.todoapp.ui.list
 
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.silverstar.todoapp.business.entity.Todo
+import com.silverstar.todoapp.data.entity.Todo
 import com.silverstar.todoapp.business.interactor.TodoListInteractor
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableTransformer
@@ -51,7 +51,14 @@ internal class TodoListViewModelTest {
     @DisplayName("값을 내보내는 mock 을 주입했을 때")
     inner class ContextWithHasValueMock {
 
-        private val todoList = listOf(Todo("Test", "Test", false))
+        private val todoList = listOf(
+            Todo(
+                System.currentTimeMillis(),
+                "Test",
+                "Test",
+                false
+            )
+        )
 
         @BeforeEach
         fun prepareMock() {

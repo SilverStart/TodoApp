@@ -1,9 +1,10 @@
 package com.silverstar.todoapp.business.interactor
 
-import com.silverstar.todoapp.business.dao.TodoDao
+import com.silverstar.todoapp.data.dao.TodoDao
 import com.silverstar.todoapp.mvibase.MviInteractor
 import com.silverstar.todoapp.ui.list.TodoListAction
 import com.silverstar.todoapp.ui.list.TodoListResult
+import hu.akarnokd.rxjava3.bridge.RxJavaBridge
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableTransformer
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -24,6 +25,7 @@ open class TodoListInteractor @Inject constructor(private val todoDao: TodoDao) 
                 TodoListResult> { action ->
             action.flatMap {
                 todoDao.getAll()
+                    .`as`(RxJavaBridge.toV3Observable())
                     .map { TodoListResult.LoadTodoListResult.Success(it) }
                     .cast(TodoListResult::class.java)
                     .subscribeOn(Schedulers.io())

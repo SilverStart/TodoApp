@@ -1,15 +1,27 @@
 package com.silverstar.todoapp.di.module.application
 
-import com.silverstar.todoapp.business.dao.TodoDao
-import com.silverstar.todoapp.business.dao.TodoDaoImpl
-import dagger.Binds
+import android.content.Context
+import androidx.room.Room
+import com.silverstar.todoapp.data.TodoDatabase
+import com.silverstar.todoapp.data.dao.TodoDao
 import dagger.Module
+import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-interface DaoModule {
+class DaoModule {
 
     @Singleton
-    @Binds
-    fun todoDao(todoDao: TodoDaoImpl): TodoDao
+    @Provides
+    fun provideDatabase(context: Context): TodoDatabase {
+        return Room.databaseBuilder(
+            context.applicationContext,
+            TodoDatabase::class.java,
+            "todo_database"
+        ).build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideTodoDao(todoDatabase: TodoDatabase): TodoDao = todoDatabase.todoDao()
 }

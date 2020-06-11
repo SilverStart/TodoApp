@@ -1,7 +1,7 @@
 package com.silverstar.todoapp.business.interactor
 
 import com.nhaarman.mockitokotlin2.mock
-import com.silverstar.todoapp.business.dao.TodoDao
+import com.silverstar.todoapp.data.dao.TodoDao
 import com.silverstar.todoapp.ui.input.TodoInputAction
 import com.silverstar.todoapp.ui.input.TodoInputError
 import com.silverstar.todoapp.ui.input.TodoInputResult

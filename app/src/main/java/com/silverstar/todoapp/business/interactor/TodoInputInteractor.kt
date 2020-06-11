@@ -1,7 +1,7 @@
 package com.silverstar.todoapp.business.interactor
 
-import com.silverstar.todoapp.business.dao.TodoDao
-import com.silverstar.todoapp.business.entity.Todo
+import com.silverstar.todoapp.data.dao.TodoDao
+import com.silverstar.todoapp.data.entity.Todo
 import com.silverstar.todoapp.mvibase.MviInteractor
 import com.silverstar.todoapp.ui.input.TodoInputAction
 import com.silverstar.todoapp.ui.input.TodoInputError
@@ -37,7 +37,16 @@ open class TodoInputInteractor @Inject constructor(
 
     private fun returnSaveBehaviorResult(action: TodoInputAction.SaveTodoAction): Observable<TodoInputResult> =
         Observable
-            .fromCallable { todoDao.insert(Todo(action.title, action.content, false)) }
+            .fromCallable {
+                todoDao.insert(
+                    Todo(
+                        System.currentTimeMillis(),
+                        action.title,
+                        action.content,
+                        false
+                    )
+                )
+            }
             .map { TodoInputResult.SaveTodoResult.Success }
             .cast(TodoInputResult::class.java)
             .startWith(Observable.just(TodoInputResult.IsLoading))

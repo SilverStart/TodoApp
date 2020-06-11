@@ -1,6 +1,6 @@
 package com.silverstar.todoapp.ui.list
 
-import com.silverstar.todoapp.business.entity.Todo
+import com.silverstar.todoapp.data.entity.Todo
 import com.silverstar.todoapp.mvibase.MviResult
 
 sealed class TodoListResult : MviResult {
